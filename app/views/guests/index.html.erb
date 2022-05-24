@@ -1,0 +1,30 @@
+<h1>Guests</h1>
+<%= link_to "New guest", new_guest_path %>
+
+<div id="guests">
+  <table>
+    <thead>
+    <tr>
+      <th>Guest name</th>
+      <th>Guest passport no</th>
+      <th>Guest phone</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.guest_name %></td>
+        <td><%= guest.guest_passport_no %></td>
+        <td><%= guest.guest_phone %></td>
+        <td style="display: flex; gap: 10px">
+          <%= button_to "Edit", edit_guest_path(guest), method: :get %>
+          <%= button_to "Destroy", guest, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+

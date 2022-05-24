@@ -1,0 +1,32 @@
+<%= form_with(model: guest) do |form| %>
+  <% if guest.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(guest.errors.count, "error") %></h2>
+
+      <ul>
+        <% guest.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :guest_name %> <br>
+    <%= form.text_field :guest_name %>
+  </div>
+
+  <div>
+    <%= form.label :guest_passport_no %> <br>
+    <%= form.text_field :guest_passport_no %>
+  </div>
+
+  <div>
+    <%= form.label :guest_phone %> <br>
+    <%= form.text_field :guest_phone %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

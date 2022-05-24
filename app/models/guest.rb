@@ -4,6 +4,9 @@ class Guest < ApplicationRecord
   validates :guest_name, :guest_passport_no, :guest_phone, presence: true
   validates :guest_passport_no, :guest_phone, uniqueness: true
   validates :guest_passport_no, length: { in: 9..10 }
+  validates :guest_passport_no, numericality: { only_integer: true }
+  validates :guest_phone, length: { is: 10 }
+  validates :guest_phone, numericality: { only_integer: true }
 
   before_save :convert_phone_number, :convert_passport_no
 

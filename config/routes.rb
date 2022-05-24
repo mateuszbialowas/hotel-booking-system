@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   # Admin
   get 'dashboard', to: 'dashboard#index'
+  resources :guests, only: [:index, :new, :create, :edit, :update, :destroy]
 end

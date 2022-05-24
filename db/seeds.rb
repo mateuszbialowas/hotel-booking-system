@@ -16,7 +16,7 @@ if Guest.count < 20
     Guest.create!(
       guest_name: FFaker::Name.name,
       guest_passport_no: Faker::Number.number(digits: 10),
-      guest_phone: FFaker::PhoneNumber.phone_number,
+      guest_phone: Faker::Number.number(digits: 10),
       )
   end
   puts "20 guests created"
