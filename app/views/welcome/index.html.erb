@@ -1,2 +1,16 @@
-<h1>Welcome in the Hotel Booking System 🏨</h1>
-<p>This web app is administrator mode ONLY</p>
+<header>
+  <h1>Welcome in the Hotel Booking System 🏨</h1>
+  <p>This web app is administrator mode ONLY</p>
+</header>
+<main>
+  <% if current_user %>
+    <p>
+      <%= "You are logged in as #{current_user.name} " %>
+    </p>
+    <%= button_to "Log out", logout_path, method: :delete %>
+    <%= link_to 'Dashboard', dashboard_path %>
+  <% else %>
+    <p>You are not logged in.</p>
+    <%= link_to "Log in", login_path %>
+  <% end %>
+</main>

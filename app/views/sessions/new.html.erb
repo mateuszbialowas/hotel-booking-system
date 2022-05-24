@@ -1,0 +1,14 @@
+<div>
+  <h1>Log in</h1>
+  <%= form_with scope: :admin_user do |form| %>
+    <p>
+      <%= form.label :name %> <br/>
+      <%= form.text_field :name, required: true, placeholder: 'Name' %>
+    </p>
+    <p>
+      <%= form.label :password %> <br/>
+      <%= form.password_field :password, required: true, placeholder: 'Password' %>
+    </p>
+    <%= form.submit "Log In" %>
+  <% end %>
+</div>
