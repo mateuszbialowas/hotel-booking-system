@@ -10,3 +10,14 @@ unless AdminUser.exists?
   AdminUser.create!(name: "mradmin", password: "mradmin")
   puts "Admin user created"
 end
+
+if Guest.count < 20
+  20.times do
+    Guest.create!(
+      guest_name: FFaker::Name.name,
+      guest_passport_no: Faker::Number.number(digits: 10),
+      guest_phone: FFaker::PhoneNumber.phone_number,
+      )
+  end
+  puts "20 guests created"
+end

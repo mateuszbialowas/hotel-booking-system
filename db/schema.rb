@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_24_135539) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_24_155125) do
   create_table "admin_users", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest", null: false
+  end
+
+  create_table "guests", primary_key: "guest_id", force: :cascade do |t|
+    t.string "guest_name", null: false
+    t.string "guest_passport_no", null: false
+    t.string "guest_phone", null: false
   end
 
 end
