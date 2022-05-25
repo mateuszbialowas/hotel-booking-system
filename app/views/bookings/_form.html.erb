@@ -22,13 +22,13 @@
   </div>
 
   <div>
-    <%= form.label :room_id%> <br>
-    <%= form.text_field :room_id %>
+    <%= form.label "Room number" %> <br>
+    <%= form.select :room_id, Room.all.sort_by(&:room_number).collect { |r| [r.room_number, r.room_id] } %>
   </div>
 
   <div>
     <%= form.label :guest_id, style: "display: block" %>
-    <%= form.text_field :guest_id %>
+    <%= form.select :guest_id, Guest.all.sort_by(&:guest_name).collect { |g| [g.guest_name, g.guest_id] } %>
   </div>
 
   <div>
