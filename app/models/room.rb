@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  self.primary_key = "room_id"
+  has_many :bookings, dependent: :destroy, primary_key: :booking_id, foreign_key: :booking_id
 
   validates :room_type, presence: true
   validates :room_number, presence: true

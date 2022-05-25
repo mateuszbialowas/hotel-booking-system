@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_000042) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_003512) do
   create_table "admin_users", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest", null: false
+  end
+
+  create_table "bookings", primary_key: "booking_id", force: :cascade do |t|
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "room_id", null: false
+    t.integer "guest_id", null: false
+    t.index ["guest_id"], name: "index_bookings_on_guest_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
   create_table "guests", primary_key: "guest_id", force: :cascade do |t|
@@ -27,4 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_000042) do
     t.string "room_type", default: "standard_room", null: false
   end
 
+  add_foreign_key "bookings", "guests"
+  add_foreign_key "bookings", "rooms"
 end

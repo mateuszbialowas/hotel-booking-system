@@ -31,3 +31,15 @@ if Room.count < 10
   end
   puts '10 rooms created'
 end
+
+if Booking.count < 10
+  10.times do
+    Booking.create!(
+      room_id: Room.all.sample.room_id,
+      guest_id: Guest.all.sample.guest_id,
+      start_date: Faker::Date.between(from: Date.today, to: Date.today + 30),
+      end_date: Faker::Date.between(from: Date.today + 30, to: Date.today + 90)
+    )
+  end
+  puts '10 bookings created'
+end
