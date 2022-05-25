@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
   resources :guests, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :rooms, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :bookings
 end

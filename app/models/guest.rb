@@ -1,5 +1,6 @@
 class Guest < ApplicationRecord
-  has_many :bookings, primary_key: :booking_id, foreign_key: :booking_id
+  self.primary_key = :guest_id
+  has_many :bookings
 
   validates :guest_name, :guest_passport_no, :guest_phone, presence: true
   validates :guest_passport_no, :guest_phone, uniqueness: true
