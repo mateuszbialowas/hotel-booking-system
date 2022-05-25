@@ -1,4 +1,6 @@
 # Hotel Booking System
+This web app is administrator mode ONLY
+
 
 ![Untitled](https://user-images.githubusercontent.com/58574619/170356374-58a09de9-768d-4854-a736-d0b202e9dbf1.png)
 ![Untitled (1)](https://user-images.githubusercontent.com/58574619/170356405-a17ba006-0c1d-4441-9de5-e33e752781f0.png)
