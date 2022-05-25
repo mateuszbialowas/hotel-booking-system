@@ -1,0 +1,27 @@
+<h1>Rooms</h1>
+<%= link_to "New room", new_room_path %>
+
+<div id="rooms">
+  <table>
+    <thead>
+    <tr>
+      <th>Room number</th>
+      <th>Room type</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.room_number %></td>
+        <td><%= room.room_type %></td>
+        <td style="display: flex; gap: 10px">
+          <%= button_to "Edit", edit_room_path(room), method: :get %>
+          <%= button_to "Destroy", room, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+

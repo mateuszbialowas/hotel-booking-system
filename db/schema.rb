@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_24_155125) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_000042) do
   create_table "admin_users", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest", null: false
@@ -20,6 +20,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_155125) do
     t.string "guest_name", null: false
     t.string "guest_passport_no", null: false
     t.string "guest_phone", null: false
+  end
+
+  create_table "rooms", primary_key: "room_id", force: :cascade do |t|
+    t.integer "room_number", default: 1, null: false
+    t.string "room_type", default: "standard_room", null: false
   end
 
 end
