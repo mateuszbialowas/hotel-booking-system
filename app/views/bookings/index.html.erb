@@ -1,12 +1,35 @@
 <h1>Bookings</h1>
 
 <%= link_to "New booking", new_booking_path %>
+<%= link_to "Go to dashboard", dashboard_path %>
 <div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+    <tr>
+      <th>Booking id</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Room type</th>
+      <th>Room number</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.id %></td>
+        <td><%= booking.start_date.strftime('%F') %></td>
+        <td><%= booking.end_date.strftime('%F') %></td>
+        <td><%= booking.room.room_type %></td>
+        <td><%= booking.room.room_number %></td>
+        <td style="display: flex; gap: 10px">
+          <%= button_to "Details", booking, method: :get %>
+          <%= button_to "Edit", edit_booking_path(booking), method: :get %>
+          <%= button_to "Destroy", booking, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 

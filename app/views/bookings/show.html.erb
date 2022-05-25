@@ -1,8 +1,48 @@
-<%= render @booking %>
+<header>
+  <h1>Details booking ℹ️</h1>
+  <mark>
+    Booking id: <%=@booking.id%>
+  </mark>
+</header>
+
+<p>
+  <strong>Booking id:</strong>
+  <%= @booking.booking_id %>
+</p>
+
+<p>
+  <strong>Booking start_date:</strong>
+  <%= @booking.start_date.strftime('%F') %>
+  <br>
+  <strong>Booking end_date:</strong>
+  <%= @booking.end_date.strftime('%F') %>
+</p>
+<p>
+  <strong>Booking room_id:</strong>
+  <%= @booking.room_id %> <br>
+
+  <strong>Booking room_type:</strong>
+  <%= @booking.room.room_type %> <br>
+
+  <strong>Booking room_number:</strong>
+  <%= @booking.room.room_number %> <br>
+</p>
+<p>
+  <strong>Booking guest_id:</strong>
+  <%= @booking.guest_id %> <br>
+
+  <strong>Booking guest_name:</strong>
+  <%= @booking.guest.guest_name %> <br>
+
+  <strong>Booking guest_passport_no:</strong>
+  <%= @booking.guest.guest_passport_no %> <br>
+
+  <strong>Booking guest_phone:</strong>
+  <%= @booking.guest.guest_phone %> <br>
+</p>
 
 <div>
   <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
   <%= link_to "Back to bookings", bookings_path %>
-
   <%= button_to "Destroy this booking", @booking, method: :delete %>
 </div>
