@@ -5,6 +5,7 @@
   <table>
     <thead>
     <tr>
+      <th>Room id</th>
       <th>Room number</th>
       <th>Room type</th>
       <th>Action</th>
@@ -13,11 +14,12 @@
     <tbody>
     <% @rooms.each do |room| %>
       <tr>
+        <td><%= room.room_id %></td>
         <td><%= room.room_number %></td>
         <td><%= room.room_type %></td>
         <td style="display: flex; gap: 10px">
           <%= button_to "Edit", edit_room_path(room), method: :get %>
-          <%= button_to "Destroy", room, method: :delete %>
+          <%= button_to "Delete", room, method: :delete %>
         </td>
       </tr>
     <% end %>

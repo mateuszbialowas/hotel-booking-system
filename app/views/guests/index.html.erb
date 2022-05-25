@@ -5,6 +5,7 @@
   <table>
     <thead>
     <tr>
+      <th>Guest id</th>
       <th>Guest name</th>
       <th>Guest passport no</th>
       <th>Guest phone</th>
@@ -15,12 +16,13 @@
 
     <% @guests.each do |guest| %>
       <tr>
+        <td><%= guest.guest_id %></td>
         <td><%= guest.guest_name %></td>
         <td><%= guest.guest_passport_no %></td>
         <td><%= guest.guest_phone %></td>
         <td style="display: flex; gap: 10px">
           <%= button_to "Edit", edit_guest_path(guest), method: :get %>
-          <%= button_to "Destroy", guest, method: :delete %>
+          <%= button_to "Delete", guest, method: :delete %>
         </td>
       </tr>
     <% end %>

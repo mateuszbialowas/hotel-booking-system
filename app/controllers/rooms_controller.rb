@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @rooms = Room.all.sort_by(&:room_number)
+    @rooms = Room.all
   end
 
   def new
