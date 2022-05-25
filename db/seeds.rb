@@ -34,7 +34,7 @@ end
 
 if Booking.count < 10
   10.times do
-    Booking.create!(
+    Booking.create(
       room_id: Room.all.sample.room_id,
       guest_id: Guest.all.sample.guest_id,
       start_date: Faker::Date.between(from: Date.today, to: Date.today + 30),

@@ -36,4 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_003512) do
     t.string "room_type", default: "standard_room", null: false
   end
 
+  add_foreign_key "bookings", "guests", primary_key: "guest_id"
+  add_foreign_key "bookings", "rooms", primary_key: "room_id"
 end
