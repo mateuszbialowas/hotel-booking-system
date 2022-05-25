@@ -1,5 +1,4 @@
 class Room < ApplicationRecord
-  self.primary_key = :room_id
   has_many :bookings
 
   validates :room_type, presence: true
