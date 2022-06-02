@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :restrict_with_error
 
   validates :room_type, presence: true
   validates :room_number, presence: true

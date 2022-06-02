@@ -36,10 +36,15 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room.destroy
+    if @room.destroy
+      flash[:notice] = "Room was successfully deleted."
+    else
+      flash[:notice] = "Room could not be deleted. Delete the room's reservations first and try again."
+    end
 
-    respond_to do |format|
-      format.html { redirect_to rooms_url, notice: "Room destroyed." }
+
+      respond_to do |format|
+      format.html { redirect_to rooms_url }
     end
   end
 

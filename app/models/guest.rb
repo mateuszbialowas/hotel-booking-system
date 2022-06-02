@@ -1,5 +1,5 @@
 class Guest < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :restrict_with_error
 
   validates :guest_name, :guest_passport_no, :guest_phone, presence: true
   validates :guest_passport_no, :guest_phone, uniqueness: true

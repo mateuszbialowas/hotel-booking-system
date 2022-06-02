@@ -37,10 +37,14 @@ class GuestsController < ApplicationController
   end
 
   def destroy
-    @guest.destroy
+    if @guest.destroy
+      flash[:notice] = "Guest was successfully deleted."
+    else
+      flash[:notice] = "Guest could not be deleted. Delete the guest's reservations first and try again."
+    end
 
     respond_to do |format|
-      format.html { redirect_to guests_url, notice: "Guest destroyed." }
+      format.html { redirect_to guests_url }
     end
   end
 
