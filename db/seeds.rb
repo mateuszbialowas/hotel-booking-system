@@ -11,29 +11,29 @@ unless AdminUser.exists?
   puts 'Admin user created'
 end
 
-if Guest.count < 20
-  20.times do
+if Guest.count < 50
+  50.times do
     Guest.create!(
       guest_name: FFaker::Name.name,
       guest_passport_no: Faker::Number.number(digits: 10),
       guest_phone: Faker::Number.number(digits: 10)
     )
   end
-  puts '20 guests created'
+  puts '50 guests created'
 end
 
-if Room.count < 10
-  10.times do
-    Room.create!(
+if Room.count < 50
+  50.times do
+    Room.create(
       room_type: %w[royal_room deluxe_room standard_room suite_room family_room].sample,
       room_number: Faker::Number.number(digits: 3)
     )
   end
-  puts '10 rooms created'
+  puts '50 rooms created'
 end
 
-if Booking.count < 10
-  10.times do
+if Booking.count < 50
+  50.times do
     Booking.create(
       room_id: Room.all.sample.room_id,
       guest_id: Guest.all.sample.guest_id,
@@ -41,5 +41,5 @@ if Booking.count < 10
       end_date: Faker::Date.between(from: Date.today + 30, to: Date.today + 90)
     )
   end
-  puts '10 bookings created'
+  puts '50 bookings created'
 end

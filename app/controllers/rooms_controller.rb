@@ -39,6 +39,7 @@ class RoomsController < ApplicationController
     if @room.destroy
       flash[:notice] = "Room was successfully deleted."
     else
+      binding.pry
       flash[:notice] = "Room could not be deleted. Delete the room's reservations first and try again."
     end
 
