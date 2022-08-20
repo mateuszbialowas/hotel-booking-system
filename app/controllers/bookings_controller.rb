@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @bookings = Booking.all
+    @pagy, @bookings = pagy(Booking.all)
   end
 
   def show
